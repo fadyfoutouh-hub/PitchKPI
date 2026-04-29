@@ -3,39 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>PitchKPI</title>
+    <style>
+        body { font-family: 'DM Sans', sans-serif; margin: 0; padding: 0; }
+        h1 { font-family: 'Playfair Display', serif; }
+        .header { position: sticky; top: 0; background: #333; color: white; padding: 10px; }
+        .hero { background-color: #111; color: #fff; padding: 20px; text-align: center; }
+        .kpi { display: flex; justify-content: space-around; }
+        .kpi div { margin: 10px; font-size: 2em; }
+        .container { display: flex; }
+        .main-content { flex: 2; padding: 20px; }
+        .sidebar { flex: 1; background: #f4f4f4; padding: 20px; }
+        .news-card { border: 1px solid #ccc; margin: 10px 0; padding: 10px; }
+        .footer { border-top: 5px solid gold; padding: 10px; text-align: center; }
+        /* Add more styles as needed */
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=DM+Sans&family=DM+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to PitchKPI</h1>
+    <div class="header">
+        <h1>PitchKPI</h1>
         <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Articles</a></li>
-                <li><a href="#">KPIs</a></li>
-            </ul>
+            <!-- Navigation buttons go here -->
         </nav>
-    </header>
-    <section class="hero">
-        <h2>Your Key Performance Indicators at a Glance</h2>
-    </section>
-    <main>
+    </div>
+    <div class="hero">
+        <h2>Key Performance Indicators</h2>
+        <div class="kpi">
+            <div>€45.2B</div>
+            <div>€7.3B</div>
+            <div>€18.9B</div>
+            <div>€4.6B</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="main-content">
+            <!-- Main content grid goes here -->
+        </div>
         <div class="sidebar">
-            <h3>KPIs</h3>
-            <ul>
-                <li>KPI 1</li>
-                <li>KPI 2</li>
-                <li>KPI 3</li>
-            </ul>
+            <!-- Sidebar content goes here -->
         </div>
-        <div class="articles">
-            <h3>Latest Articles</h3>
-            <!-- Articles will be injected here -->
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2026 PitchKPI. All rights reserved.</p>
-    </footer>
+    </div>
+    <div class="footer">
+        <p>Professional Footer with Gold Border</p>
+    </div>
+    <script>
+        // Implement live ticker animation, news fetching, modal, and clock display features
+        // Use Anthropic API for live data fetching
+    </script>
 </body>
 </html>
