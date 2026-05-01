@@ -170,7 +170,8 @@ header{
 .change-cell{font-family:'DM Mono',monospace;font-size:11.5px}
 .change-cell.up{color:var(--green)}.change-cell.down{color:var(--red)}
 .val-bar-wrap{width:64px;height:4px;background:var(--line2);border-radius:2px;overflow:hidden}
-.val-bar{height:100%;border-radius:2px;background:var(--gold2)}
+.val-bar{height:100%;border-radius:2px;background:var(--gold2);width:0;animation:barGrow .8s ease forwards}
+@keyframes barGrow{from{width:0}to{width:var(--target-width)}}
 
 /* ── SIDEBAR ── */
 .side-section{margin-bottom:28px}
@@ -334,6 +335,48 @@ footer{background:#0A0A0A;padding:36px 40px 24px;border-top:3px solid var(--gold
   .modal-overlay{padding:0}
 }
 
+
+/* ── FOOTBALL STOCKS ── */
+.stock-section{margin-bottom:36px}
+.stock-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.stock-card{background:var(--bg3);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;align-items:center;gap:12px;transition:border-color .2s,box-shadow .2s;cursor:pointer}
+.stock-card:hover{border-color:var(--gold);box-shadow:0 3px 14px rgba(0,0,0,.07)}
+.stock-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+.stock-info{flex:1;min-width:0}
+.stock-ticker{font-size:11px;font-family:'DM Mono',monospace;color:var(--ink4);margin-bottom:2px}
+.stock-name{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stock-price{text-align:right;flex-shrink:0}
+.stock-val{font-size:15px;font-family:'DM Mono',monospace;font-weight:500;color:var(--ink)}
+.stock-change{font-size:11px;font-family:'DM Mono',monospace;margin-top:2px}
+.stock-change.up{color:var(--green)}.stock-change.down{color:var(--red)}
+
+/* ── TECH DEEP DIVE ── */
+.tech-section{margin-bottom:36px}
+.tech-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.tech-card{background:var(--bg3);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.tech-card:hover{border-color:var(--gold);box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.tech-header{padding:16px 18px;border-bottom:1px solid var(--line2);display:flex;align-items:center;gap:10px}
+.tech-logo{width:36px;height:36px;border-radius:6px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.tech-title{font-size:14px;font-weight:600;color:var(--ink)}
+.tech-sub{font-size:10.5px;color:var(--ink4);margin-top:1px}
+.tech-body{padding:14px 18px}
+.tech-desc{font-size:12.5px;color:var(--ink3);line-height:1.65;margin-bottom:10px}
+.tech-metrics{display:flex;gap:12px;flex-wrap:wrap}
+.tech-metric{font-size:11px;color:var(--ink4);font-family:'DM Mono',monospace}
+.tech-metric span{color:var(--gold);font-weight:500}
+.tech-clients{font-size:11px;color:var(--ink4);margin-top:8px;padding-top:8px;border-top:1px solid var(--line2)}
+.tech-tag{display:inline-block;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:2px 7px;border-radius:4px;margin-right:4px;margin-bottom:4px}
+.tech-tag.acquired{background:#FEF3C7;color:#92400E}
+.tech-tag.public{background:#DBEAFE;color:#1E40AF}
+.tech-tag.private{background:#ECFDF5;color:#065F46}
+.tech-tag.startup{background:#FCE7F3;color:#9D174D}
+
+/* Responsive */
+@media(max-width:760px){
+  .stock-grid{grid-template-columns:1fr}
+  .tech-grid{grid-template-columns:1fr}
+}
+
 /* ════════════════════════════════════════
    RESPONSIVE — MOBILE FIRST
 ════════════════════════════════════════ */
@@ -444,6 +487,14 @@ footer{background:#0A0A0A;padding:36px 40px 24px;border-top:3px solid var(--gold
       <div class="ticker-item">Serie A Private Equity<span>€1.7B offer</span></div>
       <div class="ticker-item">Tottenham Naming Rights<span>£150M 10yr deal</span></div>
       <div class="ticker-item">AI Scouting Market<span>€2.4B by 2027</span></div>
+      <div class="ticker-item">MANU Stock<span>$16.42 ▲2.8%</span></div>
+      <div class="ticker-item">Juventus Share Price<span>€2.85 ▼1.2%</span></div>
+      <div class="ticker-item">BVB Stock<span>€4.12 ▲0.6%</span></div>
+      <div class="ticker-item">Catapult Market Cap<span>A$250M</span></div>
+      <div class="ticker-item">MANU Stock<span>$16.42 ▲2.8%</span></div>
+      <div class="ticker-item">Juventus Share Price<span>€2.85 ▼1.2%</span></div>
+      <div class="ticker-item">BVB Stock<span>€4.12 ▲0.6%</span></div>
+      <div class="ticker-item">Catapult Market Cap<span>A$250M</span></div>
       <!-- duplicate for seamless loop -->
       <div class="ticker-item">Real Madrid Valuation<span>€1.48B ▲2.1%</span></div>
       <div class="ticker-item">Premier League Broadcast<span>£6.7B cycle</span></div>
@@ -461,6 +512,14 @@ footer{background:#0A0A0A;padding:36px 40px 24px;border-top:3px solid var(--gold
       <div class="ticker-item">Serie A Private Equity<span>€1.7B offer</span></div>
       <div class="ticker-item">Tottenham Naming Rights<span>£150M 10yr deal</span></div>
       <div class="ticker-item">AI Scouting Market<span>€2.4B by 2027</span></div>
+      <div class="ticker-item">MANU Stock<span>$16.42 ▲2.8%</span></div>
+      <div class="ticker-item">Juventus Share Price<span>€2.85 ▼1.2%</span></div>
+      <div class="ticker-item">BVB Stock<span>€4.12 ▲0.6%</span></div>
+      <div class="ticker-item">Catapult Market Cap<span>A$250M</span></div>
+      <div class="ticker-item">MANU Stock<span>$16.42 ▲2.8%</span></div>
+      <div class="ticker-item">Juventus Share Price<span>€2.85 ▼1.2%</span></div>
+      <div class="ticker-item">BVB Stock<span>€4.12 ▲0.6%</span></div>
+      <div class="ticker-item">Catapult Market Cap<span>A$250M</span></div>
     </div>
   </div>
 </div>
@@ -658,6 +717,212 @@ footer{background:#0A0A0A;padding:36px 40px 24px;border-top:3px solid var(--gold
       </table>
     </div>
 
+    <div class="sec-title">
+      <h2>Football Stocks</h2>
+      <div class="sec-title-line"></div>
+      <div class="sec-badge">Live · Publicly Traded</div>
+    </div>
+    <div class="stock-section">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+        <div style="font-size:11px;color:var(--ink4);font-family:'DM Mono',monospace" id="stockLastUpdated">Last updated: static data</div>
+        <button class="refresh-btn" id="stockRefreshBtn" onclick="fetchStockPrices()" style="padding:5px 10px;font-size:11px">
+          <span class="refresh-icon">↻</span> Refresh Prices
+        </button>
+      </div>
+      <div class="stock-grid" id="stockGrid">
+        <div class="stock-card">
+          <div class="stock-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+          <div class="stock-info">
+            <div class="stock-ticker">MANU · NYSE</div>
+            <div class="stock-name">Manchester United</div>
+          </div>
+          <div class="stock-price">
+            <div class="stock-val">$16.42</div>
+            <div class="stock-change up">▲ 2.8%</div>
+          </div>
+        </div>
+        <div class="stock-card">
+          <div class="stock-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+          <div class="stock-info">
+            <div class="stock-ticker">JUVE · BIT</div>
+            <div class="stock-name">Juventus FC</div>
+          </div>
+          <div class="stock-price">
+            <div class="stock-val">€2.85</div>
+            <div class="stock-change down">▼ 1.2%</div>
+          </div>
+        </div>
+        <div class="stock-card">
+          <div class="stock-icon">🇩🇪</div>
+          <div class="stock-info">
+            <div class="stock-ticker">BVB · XETRA</div>
+            <div class="stock-name">Borussia Dortmund</div>
+          </div>
+          <div class="stock-price">
+            <div class="stock-val">€4.12</div>
+            <div class="stock-change up">▲ 0.6%</div>
+          </div>
+        </div>
+        <div class="stock-card">
+          <div class="stock-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+          <div class="stock-info">
+            <div class="stock-ticker">TOT · LSE</div>
+            <div class="stock-name">Tottenham Hotspur</div>
+          </div>
+          <div class="stock-price">
+            <div class="stock-val">£4.78</div>
+            <div class="stock-change up">▲ 3.4%</div>
+          </div>
+        </div>
+        <div class="stock-card">
+          <div class="stock-icon">🇫🇷</div>
+          <div class="stock-info">
+            <div class="stock-ticker">OLG · EPA</div>
+            <div class="stock-name">Olympique Lyonnais</div>
+          </div>
+          <div class="stock-price">
+            <div class="stock-val">€2.94</div>
+            <div class="stock-change down">▼ 0.8%</div>
+          </div>
+        </div>
+        <div class="stock-card">
+          <div class="stock-icon">🇩🇰</div>
+          <div class="stock-info">
+            <div class="stock-ticker">FCC · CSE</div>
+            <div class="stock-name">FC Copenhagen</div>
+          </div>
+          <div class="stock-price">
+            <div class="stock-val">DKK 12.40</div>
+            <div class="stock-change up">▲ 1.1%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-title">
+      <h2>Football Technology Index</h2>
+      <div class="sec-title-line"></div>
+      <div class="sec-badge">Data · AI · Tracking</div>
+    </div>
+    <div class="tech-section">
+      <div class="tech-grid" id="techGrid">
+        <div class="tech-card">
+          <div class="tech-header">
+            <div class="tech-logo">📊</div>
+            <div>
+              <div class="tech-title">StatBomb</div>
+              <div class="tech-sub">Dublin, Ireland · Founded 2015</div>
+            </div>
+            <div style="margin-left:auto;"><span class="tech-tag private">Private</span></div>
+          </div>
+          <div class="tech-body">
+            <div class="tech-desc">The gold standard for event data collection. StatBomb tracks over 3,000 data points per match including on-ball pressure, pass foot, and shot freeze frames. Their xG model is widely considered the most sophisticated in the industry.</div>
+            <div class="tech-metrics">
+              <div class="tech-metric">Funding: <span>€12M Series A</span></div>
+              <div class="tech-metric">Clients: <span>100+ clubs</span></div>
+              <div class="tech-metric">Coverage: <span>20+ leagues</span></div>
+            </div>
+            <div class="tech-clients">Key clients: Manchester City, FC Barcelona, Bayer Leverkusen, Bundesliga, Serie A, Belgian Pro League</div>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-header">
+            <div class="tech-logo">🎥</div>
+            <div>
+              <div class="tech-title">Hudl / Wyscout</div>
+              <div class="tech-sub">Lincoln, NE · Founded 2006</div>
+            </div>
+            <div style="margin-left:auto;"><span class="tech-tag private">Private</span></div>
+          </div>
+          <div class="tech-body">
+            <div class="tech-desc">The dominant video analysis platform across all sports. Hudl acquired Wyscout in 2019 for €30M, creating the largest football video and data marketplace. Their platform serves 200,000+ teams globally with tools for recruitment, opposition analysis, and player development.</div>
+            <div class="tech-metrics">
+              <div class="tech-metric">Users: <span>200K+ teams</span></div>
+              <div class="tech-metric">Videos: <span>500K+ matches</span></div>
+              <div class="tech-metric">Valuation: <span>$800M+ est.</span></div>
+            </div>
+            <div class="tech-clients">Subsidiaries: Wyscout, VolleyMetrics, Sportscode. Partners: 30+ sports including football, basketball, American football</div>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-header">
+            <div class="tech-logo">🤖</div>
+            <div>
+              <div class="tech-title">Second Spectrum</div>
+              <div class="tech-sub">Los Angeles, CA · Founded 2013</div>
+            </div>
+            <div style="margin-left:auto;"><span class="tech-tag acquired">Acquired</span></div>
+          </div>
+          <div class="tech-body">
+            <div class="tech-desc">Pioneers in AI-driven player tracking using computer vision. Their optical tracking system captures player and ball movement without wearable hardware. Acquired by Genius Sports in 2021 for $200M, now powers tracking for the Premier League, NBA, and MLS.</div>
+            <div class="tech-metrics">
+              <div class="tech-metric">Acquired: <span>$200M (2021)</span></div>
+              <div class="tech-metric">Parent: <span>Genius Sports</span></div>
+              <div class="tech-metric">Leagues: <span>PL, NBA, MLS</span></div>
+            </div>
+            <div class="tech-clients">Now integrated into Genius Sports' betting and broadcast products. Provides real-time tracking data to rights holders.</div>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-header">
+            <div class="tech-logo">⚡</div>
+            <div>
+              <div class="tech-title">Catapult Sports</div>
+              <div class="tech-sub">Melbourne, Australia · Founded 2006</div>
+            </div>
+            <div style="margin-left:auto;"><span class="tech-tag public">Public</span></div>
+          </div>
+          <div class="tech-body">
+            <div class="tech-desc">The leader in wearable athlete tracking. Catapult's GPS vests and Vector devices monitor player load, sprint distance, and injury risk. IPO'd on the ASX in 2014. Serves 3,200+ elite teams including Real Madrid, Bayern Munich, and the NFL.</div>
+            <div class="tech-metrics">
+              <div class="tech-metric">Ticker: <span>CAT · ASX</span></div>
+              <div class="tech-metric">Teams: <span>3,200+</span></div>
+              <div class="tech-metric">Market cap: <span>A$250M</span></div>
+            </div>
+            <div class="tech-clients">Products: Vector GPS, ClearSky LPS, Thundercloud video. Acquired XOS Technologies and SBG Sports.</div>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-header">
+            <div class="tech-logo">🧠</div>
+            <div>
+              <div class="tech-title">SciSports</div>
+              <div class="tech-sub">Amersfoort, Netherlands · Founded 2012</div>
+            </div>
+            <div style="margin-left:auto;"><span class="tech-tag private">Private</span></div>
+          </div>
+          <div class="tech-body">
+            <div class="tech-desc">Dutch analytics firm specialising in player scouting and transfer recommendations. Their SciSkill algorithm evaluates 60,000+ players across 200+ leagues. Known for identifying undervalued talent in secondary markets before major clubs move.</div>
+            <div class="tech-metrics">
+              <div class="tech-metric">Players: <span>60K+ tracked</span></div>
+              <div class="tech-metric">Leagues: <span>200+</span></div>
+              <div class="tech-metric">Funding: <span>€5M+ raised</span></div>
+            </div>
+            <div class="tech-clients">Clients include AZ Alkmaar, Feyenoord, and multiple Championship clubs. Partnership with KPMG for due diligence.</div>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-header">
+            <div class="tech-logo">📡</div>
+            <div>
+              <div class="tech-title">Track160</div>
+              <div class="tech-sub">Tel Aviv, Israel · Founded 2017</div>
+            </div>
+            <div style="margin-left:auto;"><span class="tech-tag startup">Startup</span></div>
+          </div>
+          <div class="tech-body">
+            <div class="tech-desc">Israeli startup using single-camera AI tracking for grassroots and semi-pro clubs. Their system requires no hardware installation — just a standard camera feed. Recently signed deals with the Israeli Premier League and Belgian lower divisions.</div>
+            <div class="tech-metrics">
+              <div class="tech-metric">Cameras: <span>1 needed</span></div>
+              <div class="tech-metric">Cost: <span>90% cheaper</span></div>
+              <div class="tech-metric">Funding: <span>$12M Series B</span></div>
+            </div>
+            <div class="tech-clients">Targeting the democratisation of tracking data for clubs with budgets under €5M. Competing with Hawk-Eye at lower price points.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- SIDEBAR -->
@@ -694,6 +959,62 @@ footer{background:#0A0A0A;padding:36px 40px 24px;border-top:3px solid var(--gold
         <input class="nl-input" type="email" id="newsletter-email" placeholder="your@email.com">
         <button class="nl-btn" onclick="subscribeNewsletter()">Subscribe Free</button>
         <div class="nl-success" id="nl-success">✓ You're in. Welcome to PitchKPI.</div>
+      </div>
+    </div>
+
+    <div class="side-section">
+      <h3>Tech & Data Stack</h3>
+      <div class="tech-grid" style="grid-template-columns:1fr;display:flex;flex-direction:column;gap:10px;">
+        <div class="tech-card" style="border-radius:6px;">
+          <div class="tech-header" style="padding:10px 12px;">
+            <div class="tech-logo">📊</div>
+            <div>
+              <div class="tech-title" style="font-size:12.5px;">StatBomb</div>
+              <div class="tech-sub">Event data & xG models</div>
+            </div>
+          </div>
+          <div class="tech-body" style="padding:10px 12px;">
+            <div class="tech-desc" style="font-size:11.5px;">Irish analytics firm providing granular event data, xG models, and defensive pressure metrics. Used by 100+ clubs and media.</div>
+            <div class="tech-metrics">
+              <div class="tech-metric">Clients: <span>100+</span></div>
+              <div class="tech-metric">Data pts: <span>3,000+/match</span></div>
+            </div>
+            <div class="tech-clients" style="font-size:10.5px;margin-top:6px;padding-top:6px;">Clients: Man City, Barcelona, Bundesliga</div>
+          </div>
+        </div>
+        <div class="tech-card" style="border-radius:6px;">
+          <div class="tech-header" style="padding:10px 12px;">
+            <div class="tech-logo">🎥</div>
+            <div>
+              <div class="tech-title" style="font-size:12.5px;">Hudl</div>
+              <div class="tech-sub">Video analysis & performance</div>
+            </div>
+          </div>
+          <div class="tech-body" style="padding:10px 12px;">
+            <div class="tech-desc" style="font-size:11.5px;">Nebraska-based platform combining video analysis, wearable data, and recruitment tools. Acquired Wyscout in 2019.</div>
+            <div class="tech-metrics">
+              <div class="tech-metric">Users: <span>200K+</span></div>
+              <div class="tech-metric">Sports: <span>30+</span></div>
+            </div>
+            <div class="tech-clients" style="font-size:10.5px;margin-top:6px;padding-top:6px;">Subsidiaries: Wyscout, VolleyMetrics</div>
+          </div>
+        </div>
+        <div class="tech-card" style="border-radius:6px;">
+          <div class="tech-header" style="padding:10px 12px;">
+            <div class="tech-logo">🤖</div>
+            <div>
+              <div class="tech-title" style="font-size:12.5px;">Second Spectrum</div>
+              <div class="tech-sub">AI tracking & computer vision</div>
+            </div>
+          </div>
+          <div class="tech-body" style="padding:10px 12px;">
+            <div class="tech-desc" style="font-size:11.5px;">LA-based AI company using computer vision for player tracking. Bought by Genius Sports in 2021 for $200M.</div>
+            <div class="tech-metrics">
+              <div class="tech-metric">Acquired: <span>$200M</span></div>
+              <div class="tech-metric">Parent: <span>Genius Sports</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -831,7 +1152,7 @@ function buildClubTable() {
       <td class="val-num">${c.val}</td>
       <td class="val-num" style="color:var(--ink3)">${c.rev}</td>
       <td class="change-cell ${c.chg.startsWith('-')?'down':'up'}">${c.chg}</td>
-      <td><div class="val-bar-wrap"><div class="val-bar" style="width:${c.bar}%"></div></div></td>
+      <td><div class="val-bar-wrap"><div class="val-bar" style="--target-width:${c.bar}%"></div></div></td>
     </tr>`).join('');
 }
 
@@ -1097,15 +1418,98 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
+// ── STOCK DATA & FETCHER ──
+const STOCKS = [
+  { symbol: 'MANU',  exchange: 'NYSE',    name: 'Manchester United',  currency: '$', price: '16.42', change: '+2.8%',  color: '#B91C1C' },
+  { symbol: 'JUVE.MI', exchange: 'BIT',     name: 'Juventus FC',         currency: '€', price: '2.85',  change: '-1.2%',  color: '#374151' },
+  { symbol: 'BVB.DE',  exchange: 'XETRA',   name: 'Borussia Dortmund',   currency: '€', price: '4.12',  change: '+0.6%',  color: '#F5E27A' },
+  { symbol: 'TOT.L',   exchange: 'LSE',     name: 'Tottenham Hotspur',   currency: '£', price: '4.78',  change: '+3.4%',  color: '#0F6E56' },
+  { symbol: 'OLG.PA',  exchange: 'EPA',     name: 'Olympique Lyonnais',  currency: '€', price: '2.94',  change: '-0.8%',  color: '#1D4ED8' },
+  { symbol: 'FCC.CO',  exchange: 'CSE',     name: 'FC Copenhagen',       currency: 'DKK', price: '12.40', change: '+1.1%',  color: '#0F6E56' },
+];
+
+// Alpha Vantage free API - 25 calls/day, no CORS issues via AllOrigins proxy
+// Get free key at: https://www.alphavantage.co/support/#api-key
+const ALPHA_KEY = 'P0WYUP6PGJW6FGZN';
+
+async function fetchStockPrices() {
+  const btn = document.getElementById('stockRefreshBtn');
+  btn.classList.add('loading');
+  document.getElementById('stockLastUpdated').textContent = 'Fetching live prices…';
+
+  let liveCount = 0;
+  const updated = [...STOCKS];
+
+  // Try to fetch each stock (Alpha Vantage via AllOrigins to bypass CORS)
+  for (let i = 0; i < updated.length; i++) {
+    const s = updated[i];
+    try {
+      // Alpha Vantage quote endpoint via AllOrigins proxy
+      const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${s.symbol}&apikey=${ALPHA_KEY}`;
+      const proxy = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+      const res = await fetch(proxy, { signal: AbortSignal.timeout(5000) });
+      const data = await res.json();
+
+      if (data.contents) {
+        const parsed = JSON.parse(data.contents);
+        const quote = parsed['Global Quote'];
+        if (quote && quote['05. price']) {
+          s.price = parseFloat(quote['05. price']).toFixed(2);
+          const changePct = quote['10. change percent']?.replace('%', '') || '0';
+          s.change = (parseFloat(changePct) >= 0 ? '+' : '') + changePct + '%';
+          liveCount++;
+        }
+      }
+    } catch (e) {
+      console.warn(`Failed to fetch ${s.symbol}:`, e);
+      // Keep static price as fallback
+    }
+    // Small delay to avoid rate limits
+    await new Promise(r => setTimeout(r, 300));
+  }
+
+  renderStocks(updated);
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+  document.getElementById('stockLastUpdated').textContent = 
+    liveCount > 0 ? `Live · Updated ${timeStr} · ${liveCount}/${updated.length} fetched` : 'Static data (API limit reached)';
+  btn.classList.remove('loading');
+}
+
+function renderStocks(stockData) {
+  const grid = document.getElementById('stockGrid');
+  grid.innerHTML = stockData.map(s => {
+    const isUp = s.change.startsWith('+');
+    return `
+    <div class="stock-card">
+      <div class="stock-icon" style="background:${s.color}20;color:${s.color};font-size:14px;font-weight:700;border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0">${s.symbol.slice(0,3)}</div>
+      <div class="stock-info">
+        <div class="stock-ticker">${s.symbol} · ${s.exchange}</div>
+        <div class="stock-name">${s.name}</div>
+      </div>
+      <div class="stock-price">
+        <div class="stock-val">${s.currency}${s.price}</div>
+        <div class="stock-change ${isUp ? 'up' : 'down'}">${isUp ? '▲' : '▼'} ${s.change.replace('+','').replace('-','')}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
 // ── INIT ──
+// Build static components
+renderStocks(STOCKS);
 buildClubTable();
 buildPulse();
 buildDeals();
 buildRevenue();
 updateClock();
 setInterval(updateClock,1000);
+// Re-trigger table animation after a tick to ensure visibility
+setTimeout(()=>{ document.querySelectorAll('.val-bar').forEach(b=>b.style.animation='none'); void b.offsetWidth; document.querySelectorAll('.val-bar').forEach(b=>b.style.animation=''); }, 100);
 loadNews();
 setInterval(loadNews,300000);
+// Auto-refresh stocks every 5 minutes (if API key is set)
+if (ALPHA_KEY !== 'demo') setInterval(fetchStockPrices, 300000);
 </script>
 
 <!-- CONTACT MODAL -->
@@ -1161,3 +1565,4 @@ setInterval(loadNews,300000);
 
 </body>
 </html>
+HTMLEOF
